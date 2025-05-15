@@ -64,6 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // Validate input fields
+    // Validate input fields
     function validateInputs(id, name, email, contact) {
         const idPattern = /^[0-9]+$/;
         const namePattern = /^[a-zA-Z ]+$/;
