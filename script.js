@@ -65,28 +65,28 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Validate input fields
     function validateInputs(id, name, email, contact) {
-        const idPattern = /^[0-9]+$/;
-        const namePattern = /^[a-zA-Z ]+$/;
-        const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-        const contactPattern = /^[6-9][0-9]{9}$/; // Ensures 10-digit number starting with 6, 7, 8, or 9
+    const idPattern = /^[0-9]+$/;
+    const namePattern = /^[a-zA-Z ]+$/;
+    const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    const contactPattern = /^[6-9][0-9]{9}$/; // Ensures 10-digit number starting with 6, 7, 8, or 9
 
-        if (!id.match(idPattern)) {
-            alert("Student ID must be numeric.");
-            return false;
-        }
-        if (!name.match(namePattern)) {
-            alert("Student name must contain only letters.");
-            return false;
-        }
-        if (!email.match(emailPattern)) {
-            alert("Enter a valid email address.");
-            return false;
-        }
-        if (!contact.match(contactPattern)) {
-            alert("Mobile number must start with 6, 7, 8, or 9 and be 10 digits long.");
-            return false;
-        }
-        return true;
+    if (!id.match(idPattern)) {
+        alert("Student ID must be numeric.");
+        return false;
+    }
+    if (!name.match(namePattern)) {
+        alert("Student name must contain only letters.");
+        return false;
+    }
+    if (!email.match(emailPattern)) {
+        alert("Enter a valid email address.");
+        return false;
+    }
+    if (!contact.match(contactPattern)) {
+        alert("Mobile number must start with 6, 7, 8, or 9 and be 10 digits long.");
+        return false;
+    }
+    return true;
     }
 
     document.getElementById("studentContact").addEventListener("input", function () {
