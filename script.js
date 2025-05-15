@@ -64,12 +64,11 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // Validate input fields
-    // Validate input fields
     function validateInputs(id, name, email, contact) {
         const idPattern = /^[0-9]+$/;
         const namePattern = /^[a-zA-Z ]+$/;
         const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-        const contactPattern = /^[0-9]+$/;
+        const contactPattern = /^[6-9][0-9]{9}$/; // Ensures 10-digit number starting with 6, 7, 8, or 9
 
         if (!id.match(idPattern)) {
             alert("Student ID must be numeric.");
@@ -84,19 +83,23 @@ document.addEventListener("DOMContentLoaded", () => {
             return false;
         }
         if (!contact.match(contactPattern)) {
-            alert("Contact number must be numeric.");
+            alert("Mobile number must start with 6, 7, 8, or 9 and be 10 digits long.");
             return false;
         }
         return true;
     }
-    document.getElementById("studentContact").addEventListener("input", function () {
-    let phoneNumber = this.value;
 
-    // Check if the first digit is NOT 6, 7, 8, or 9
-    if (phoneNumber.length > 0 && !/^[6-9]/.test(phoneNumber)) {
-        alert("Mobile number must start with 6, 7, 8, or 9.");
-        this.value = ""; // Clear the input field
-    }
+    document.getElementById("studentContact").addEventListener("input", function () {
+        let phoneNumber = this.value.trim();
+
+        // Check if phone number is invalid
+        if (phoneNumber.length > 0 && !/^[6-9]/.test(phoneNumber)) {
+            alert("Mobile number must start with 6, 7, 8, or 9.");
+            this.value = ""; // Clear the input field
+        } else if (phoneNumber.length > 0 && phoneNumber.length > 10) {
+            alert("Mobile number should not exceed 10 digits.");
+            this.value = phoneNumber.slice(0, 10); // Restrict length to 10 digits
+        }
     });
 
     // Save records to local storage
